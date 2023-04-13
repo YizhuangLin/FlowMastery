@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"name": "FlowMastery-1",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "FlowMastery-1"
+  }
+}
