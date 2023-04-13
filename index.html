@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="authors" content="Miguel Louis, Yizhuang Lin, Linux Li, Mohammad El Ghali " />
+    <meta name="emails" content="loui0064@algonquinlive.com,li000833@algonquinlive.com " />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Lato&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/timer.css" />
+    <link rel="stylesheet" href="styles/todo.css" />
+    <link rel="stylesheet" href="styles/tools.css" />
+    <link rel="stylesheet" href="styles/calculator.css" />
+    <link rel="stylesheet" href="styles/notepad.css" />
+    <link rel="stylesheet" href="styles/feedback.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>FlowMastery</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo__div">
+                <img src="./img/logo.png" alt="Logo">
+
+            </div>
+            <div class="afterlogo"></div>
+            <div class="dark-mode__container">
+                <input type="checkbox" id="dark-mode-btn" />
+                <label for="dark-mode-btn"></label>
+            </div>
+        </nav>
+        <header>
+            <div class="header">
+                <div id="header">
+                    <h1>Welcome back, Einstein.</h1>
+                </div>
+                <div id="weather-widget">
+                    <h4 class="temp"></h4>
+                </div>
+        </header>
+
+        <!--<div id="music-browser">MusicPlayer---The Star-Spangled Banner</div>-->
+        <div class="main-container">
+            <div class="left__container">
+                <!-- POMO TIMMER -->
+                <div class="timer__container">
+                    <div class="timer__functions">
+                        <div>
+                            <button class="btn__timer" id="timer25">Pomodoro</button>
+                            <button class="btn__timer" id="timer5">Rest</button>
+                            <button class="btn__timer" id="timer60">Long Rest</button>
+                        </div>
+                        <div>
+                            <form name="customForm" id="custom">
+                                <input type="text" name="minutes" placeholder="Custom Time" />
+                            </form>
+                        </div>
+                        <div id="timer-display" class="display">
+                            <p id="w_minutes">25</p>
+                            <p class="semicolon">:</p>
+                            <p id="w_seconds">00</p>
+
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="pause" class="btn__timer">Start</button>
+                        <button id="resume" class="btn__timer">Pause</button>
+                        <button id="reset" class="btn__timer">Reset</button>
+                    </div>
+                </div>
+                <!-- END POMO TIMER -->
+            </div>
+            <div class="right__container">
+                <div class="todo__container">
+                    <div class="todo__inner__container">
+                        <h1>Todo List</h1>
+                        <div id="newtask">
+                            <input type="text" placeholder="Enter Task">
+                            <!--<button id="push">+</button>-->
+                        </div>
+                        <div class="tasks"></div>
+                    </div>
+                </div>
+                <div class="todo__container">
+                    <div class="todo__inner__container">
+                        <h1>Deadlines</h1>
+                        <div id="new_deadline">
+                            <input type="text" placeholder="Enter Deadline">
+                            <!--<button id="push_deadline">+</button>-->
+                        </div>
+                        <div class="deadline_tasks"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TOOLS ACTION  -->
+        <div class="tools">
+            <h1>Tools</h1>
+            <div class="recommendations">
+                <button class="btn__recommendation" onclick="handleTools('calc')">Calculator</button>
+                <button class="btn__recommendation" onclick="handleTools('notes')">Notes</button>
+                <button class="btn__recommendation" onclick="handleTools('feedback')">Feedback</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- CALCULATOR -->
+    <div class="bottom__container">
+        <div class="calculator dark" id="calc">
+            <div class="display-screen">
+                <div id="display"></div>
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="btn-operator btn-calc" id="clear">C</button></td>
+                        <td><button class="btn-operator btn-calc" id="/">&divide;</button></td>
+                        <td><button class="btn-operator btn-calc" id="*">&times;</button></td>
+                        <td><button class="btn-operator btn-calc" id="backspace">
+                                << </td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number btn-calc" id="7">7</button></td>
+                        <td><button class="btn-number btn-calc" id="8">8</button></td>
+                        <td><button class="btn-number btn-calc" id="9">9</button></td>
+                        <td><button class="btn-operator btn-calc" id="-">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number btn-calc" id="4">4</button></td>
+                        <td><button class="btn-number btn-calc" id="5">5</button></td>
+                        <td><button class="btn-number btn-calc" id="6">6</button></td>
+                        <td><button class="btn-operator btn-calc" id="+">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-number btn-calc" id="1">1</button></td>
+                        <td><button class="btn-number btn-calc" id="2">2</button></td>
+                        <td><button class="btn-number btn-calc" id="3">3</button></td>
+                        <td rowspan="2"><button class="btn-equal btn-calc" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-operator btn-calc" id="(">(</button></td>
+                        <td><button class="btn-number btn-calc" id="0">0</button></td>
+                        <td><button class="btn-operator btn-calc" id=")">)</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- END CALCULATOR -->
+
+        <!-- NOTE PAD -->
+        <div class="notepad__container hidden" id="notes">
+            <h1>Notepad</h1>
+            <textarea id="notepad"></textarea>
+            <button class="notepad__btn" id="download">Download</button>
+        </div>
+
+        <!-- NOTE PAD END -->
+
+        <!-- Feedback -->
+        <div class="feedback__container hidden" id="feedback">
+            <h1>Feedback</h1>
+            <h2>Help us improve</h2>
+            <form action="./thankyou.html" id="form">
+                <div class="feedback__name__email">
+                    <div class="input__col">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input__col">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <label for="message" class="msg_label">Message:</label><br>
+                <textarea id="message" name="message required"></textarea>
+                <input type="submit" value="Submit" class="submit">
+            </form>
+        </div>
+
+        <!-- Feedback END -->
+
+        <!--<iframe style="overflow: hidden; border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/4Zjli1P13J5mmSCD5iKAXK?utm_source=generator" width="99%"
+            height="152" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>-->
+    </div>
+    <footer>
+        <img class="banner bottom-author" src="img/LandingPage-author.png" alt="author" />
+        <img class="banner bottom-banner" src="img/landingPage-Bottom wave.png" alt="bottom blue wave" />
+    </footer>
+
+    <script src="./JS/todo.js"></script>
+    <script src="./JS/deadline.js"></script>
+    <script src="./JS/calc.js"></script>
+    <script src="./JS/notepad.js"></script>
+    <script src="./JS/timer.js"></script>
+    <script src="./JS/handleTools.js"></script>
+    <script src="./JS/darkMode.js"></script>
+    <script src="./JS/weather.js"></script>
+    <script>
+        const username = localStorage.getItem("username");
+        if (username) {
+            const welcomeText = document.querySelector(".header h1");
+            welcomeText.textContent = `Welcome back, ${username}.`;
+        }
+    </script>
+</body>
+
+</html>
