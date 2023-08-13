@@ -17,5 +17,5 @@ submitButton.addEventListener('click', () => {
 
     localStorage.setItem('username', name);
 
-    window.location.href = 'index.html';
+    window.location.href = 'mainPage.html';
 });
